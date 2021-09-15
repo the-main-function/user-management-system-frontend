@@ -1,0 +1,11 @@
+<div style="margin-top: 5px;">
+    <a routerLink="/users/category/admin">Admin</a> ||
+    <a routerLink="/users/category/developer">Developer</a> ||
+    <a routerLink="/users/category/marketing">Marketing</a> ||
+    <search></search>
+<div>
+
+<p *ngFor = "let user of users">
+    {{user.name}} {{user.category.name}} <delete-user [userId]="user.userId"></delete-user>
+    <button><a routerLink="/user/edit/{{user.userId}}">EDIT</a></button>
+</p>

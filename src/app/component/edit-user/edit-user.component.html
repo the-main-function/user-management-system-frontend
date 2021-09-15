@@ -1,0 +1,18 @@
+<h1>EDIT FORM</h1>
+<form #editForm="ngForm">
+    <br>
+    <input type="text" name="userId" [(ngModel)]="user.userId" disabled>
+    <br> 
+    Name<input type="text" name="name" [(ngModel)]="user.name"><br>
+    Email<input type="text" name="email" [(ngModel)]="user.email"><br>
+    <br>
+    <div ngModelGroup="category">
+        Category
+        <select name="categoryId" [(ngModel)]="user.category.categoryId">
+            <option *ngFor = "let tempCat of categories" [value]="tempCat.categoryId">
+                {{tempCat.name}} {{tempCat.categoryId}}
+            </option>   
+        </select>
+    </div>
+    <button type="submit" (click)="onSubmit()">ADD</button>
+</form>

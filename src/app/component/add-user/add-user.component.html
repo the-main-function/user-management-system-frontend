@@ -1,0 +1,27 @@
+<form #userForm ="ngForm">
+    <table>
+       
+        <tr>
+            <td>Name of user</td>
+            <td><input type="text" name = "name" [(ngModel)]="user.name"></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="text" name = "email" [(ngModel)]="user.email"></td>
+        </tr>
+        <tr>
+            <td>Category</td>
+            <td ngModelGroup="category">
+                <select name="categoryId" [(ngModel)]="user.category.categoryId">
+                    <option *ngFor = "let tempCat of categories" [value]="tempCat.categoryId">
+                        {{tempCat.name}} {{tempCat.categoryId}}
+                    </option>   
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button type="submit" (click)="onSubmit()">ADD EMPLOYEE</button></td>
+        </tr>
+    </table>
+</form>
