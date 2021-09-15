@@ -12,6 +12,8 @@ export class AddUserComponent implements OnInit {
 
   constructor(public userService : UserService) { }
 
+  message!:String;
+
   category : Category = {
     "categoryId":0,
     "name":""
@@ -39,6 +41,7 @@ export class AddUserComponent implements OnInit {
   public onSubmit(){
     console.log(this.user);   
     this.userService.addUser(this.user).subscribe(data=>console.log(data),error=>console.log(error));
+    this.message="employee added successfully!!"
   }
 
   ngOnInit(): void {
